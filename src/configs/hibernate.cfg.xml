@@ -14,14 +14,14 @@
         <!-- DB schema will be updated if needed -->
          <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <mapping class="models.Airport"/>
-        <mapping class="models.Customer"/>
-        <mapping class="models.Company"/>
-        <mapping class="models.Flight"/>
-        <mapping class="models.Luggage"/>
-        <mapping class="models.Plane"/>
-        <mapping class="models.Schedule"/>
-        <mapping class="models.Terminal"/>
-        <mapping class="models.Ticket"/>
+        <mapping class="mvc.model.Airport"/>
+        <mapping class="mvc.model.Customer"/>
+        <mapping class="mvc.model.Company"/>
+        <mapping class="mvc.model.Flight"/>
+        <mapping class="mvc.model.Luggage"/>
+        <mapping class="mvc.model.Plane"/>
+        <mapping class="mvc.model.Schedule"/>
+        <mapping class="mvc.model.Terminal"/>
+        <mapping class="mvc.model.Ticket"/>
     </session-factory>
 </hibernate-configuration>

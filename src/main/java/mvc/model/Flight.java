@@ -1,4 +1,4 @@
-package models;
+package mvc.model;
 
 import utils.FlightStatus;
 
