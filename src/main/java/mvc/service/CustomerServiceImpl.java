@@ -1,6 +1,6 @@
 package mvc.service;
 
-import mvc.Main;
+import utils.SessionUtils;
 import mvc.dao.CustomerDao;
 import mvc.model.Customer;
 import org.hibernate.Session;
@@ -19,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Transactional
     public void updateCustomer(Customer customer) {
-        try (final Session session = Main.getSession()) {
+        try (final Session session = SessionUtils.getSession()) {
             session.merge(customer);
         }
     }
