@@ -24,7 +24,7 @@ public class CustomerServiceImpl implements CustomerService{
         }
     }
 
-    public Customer findCustomerByName(String name) {
-        return customerDao.findByCustomerName(name);
+    public Customer findCustomerByName(String surname) {
+        return customerDao.findBySurname(surname);
     }
 }
