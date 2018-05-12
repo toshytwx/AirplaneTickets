@@ -89,10 +89,7 @@
       </div>
     </header>
 
-    <!-- Page Content -->
-     <!--<div class="container">-->
-       <div id="map"></div>
-     <!--</div>-->
+    <div id="map"></div>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
@@ -107,7 +104,9 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Google maps JavaScript -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIDQbJF1uK_Ec99TSNBDM_wuuEkMapyRQ&callback=initMap">
+    </script>
     <script src="./js/custom.js"></script>
 
   </body>
