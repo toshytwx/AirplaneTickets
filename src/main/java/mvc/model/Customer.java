@@ -21,6 +21,9 @@ public class Customer {
     @Column (name = "telephone")
     private String phoneNumber;
 
+    @Column (name = "birthDay")
+    private String birthDay;
+
     //For Hibernate
     public Customer() { }
 }

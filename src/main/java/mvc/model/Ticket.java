@@ -12,6 +12,9 @@ public class Ticket {
     @Column (name = "price")
     private String price;
 
+    @Column (name = "type")
+    private String type;
+
     @OneToOne
     @PrimaryKeyJoinColumn
     private Flight flight;
