@@ -1,5 +1,7 @@
 package mvc.model;
 
+import utils.TicketType;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +15,7 @@ public class Ticket {
     private String price;
 
     @Column (name = "type")
-    private String type;
+    private TicketType type;
 
     @OneToOne
     @PrimaryKeyJoinColumn

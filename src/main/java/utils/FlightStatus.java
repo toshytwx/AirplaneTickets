@@ -1,7 +1,7 @@
 package utils;
 
 public enum FlightStatus {
-    Boarding, Cancelled, CheckIn, Scheduled, Delayed, Departed, GateOpen, GateClosed;
+    BOARDING, CANCELLED, CHECKIN, SCHEDULED, DELAYED, DEPARTED, GATEOPEN, GATECLOSED;
 }
 
 /*
