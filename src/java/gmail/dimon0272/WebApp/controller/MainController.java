@@ -47,35 +47,43 @@ public class MainController {
 
     @RequestMapping(value = {"/"} , method = RequestMethod.GET)
     public String registration(Model model) {
-        List<String> airportsListNames = airportService.airportsNames();
-        model.addAttribute("departureAirportsList", airportsListNames);
-        model.addAttribute("arrivalAirportsList", airportsListNames);
+        if (airportService != null) {
+            List<String> airportsListNames = airportService.airportsNames();
+            model.addAttribute("departureAirportsList", airportsListNames);
+            model.addAttribute("arrivalAirportsList", airportsListNames);
+        }
         return "index";
     }
 
     @RequestMapping(value = {"/ticket"} , method = RequestMethod.GET)
     public String getTicketInfo(Model model) {
-        Company company = companyService.getCompanyById(1L);
-        model.addAttribute("surname", customer.getSurname());
-        model.addAttribute("name", customer.getFirstName());
-        model.addAttribute("signature", flight.getSignature());
-        model.addAttribute("seat", "48");
-        model.addAttribute("ticketClass", ticket.getType());
-        model.addAttribute("ticketPrice", ticket.getPrice());
-        model.addAttribute("departureAirportName", departureAirportName);
-        model.addAttribute("arrivalAirportName", arrivalAirportName);
-        Airport departureAirport = airportService.findAirportByName(departureAirportName);
-        model.addAttribute("latStart", departureAirport.getLat());
-        model.addAttribute("lngStart", departureAirport.getLng());
-        Airport arrivalAirport = airportService.findAirportByName(arrivalAirportName);
-        model.addAttribute("latEnd", arrivalAirport.getLat());
-        model.addAttribute("lngEnd", arrivalAirport.getLng());
-        model.addAttribute("luggageWeight", luggage.getWeight());
-        model.addAttribute("handLuggage", luggage.getHandLuggage());
-        model.addAttribute("companyName", company.getName());
-        model.addAttribute("bortNumber", "737");
-        model.addAttribute("planeCapacity", "150");
-        model.addAttribute("terminalSignature", "2A");
+        if (companyService != null &&
+                customer != null && flight != null &&
+                ticket != null && departureAirportName != null &&
+                arrivalAirportName != null && airportService != null
+                && luggage != null) {
+            Company company = companyService.getCompanyById(1L);
+            model.addAttribute("surname", customer.getSurname());
+            model.addAttribute("name", customer.getFirstName());
+            model.addAttribute("signature", flight.getSignature());
+            model.addAttribute("seat", "48");
+            model.addAttribute("ticketClass", ticket.getType());
+            model.addAttribute("ticketPrice", ticket.getPrice());
+            model.addAttribute("departureAirportName", departureAirportName);
+            model.addAttribute("arrivalAirportName", arrivalAirportName);
+            Airport departureAirport = airportService.findAirportByName(departureAirportName);
+            model.addAttribute("latStart", departureAirport.getLat());
+            model.addAttribute("lngStart", departureAirport.getLng());
+            Airport arrivalAirport = airportService.findAirportByName(arrivalAirportName);
+            model.addAttribute("latEnd", arrivalAirport.getLat());
+            model.addAttribute("lngEnd", arrivalAirport.getLng());
+            model.addAttribute("luggageWeight", luggage.getWeight());
+            model.addAttribute("handLuggage", luggage.getHandLuggage());
+            model.addAttribute("companyName", company.getName());
+            model.addAttribute("bortNumber", "737");
+            model.addAttribute("planeCapacity", "150");
+            model.addAttribute("terminalSignature", "2A");
+        }
         return "ticket";
     }
 
@@ -99,6 +107,7 @@ public class MainController {
         Company company = companyService.getCompanyById(1L);
         flight = flightService.findFlightById(customer.getId());
         ticket = ticketService.findTicketByCustomer(customer);
+        luggage = luggageService.findLuggageByOwner(customer);
         model.addAttribute("surname", customer.getSurname());
         model.addAttribute("name", customer.getFirstName());
         model.addAttribute("signature", flight.getSignature());

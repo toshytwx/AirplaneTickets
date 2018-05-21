@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Service
 public class LuggageServiceImpl implements LuggageService {
@@ -18,6 +19,8 @@ public class LuggageServiceImpl implements LuggageService {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    private Query query;
 
     @Override
     public void saveLuggage(Luggage luggage) {
@@ -32,6 +35,8 @@ public class LuggageServiceImpl implements LuggageService {
     @Override
     @Transactional
     public Luggage findLuggageByOwner(Customer customer) {
-        return luggageDao.findByOwner(customer);
+        query = entityManager.createQuery("SELECT t FROM Luggage t WHERE t.id = :id", Luggage.class);
+        query.setParameter("id", customer.getId());
+        return (Luggage) query.getSingleResult();
     }
 }
