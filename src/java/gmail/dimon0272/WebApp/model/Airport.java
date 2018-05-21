@@ -67,4 +67,8 @@ public class Airport {
     public void setLng(Double lng) {
         this.lng = lng;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

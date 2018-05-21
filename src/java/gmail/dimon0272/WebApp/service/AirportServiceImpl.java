@@ -23,14 +23,20 @@ public class AirportServiceImpl implements AirportService{
 
     @Override
     public List<String> airportsNames() {
-        query = entityManager.createNativeQuery("SELECT a.name FROM Airport a");
-        return (ArrayList<String>) query.getResultList();
+        if (entityManager != null) {
+            query = entityManager.createNativeQuery("SELECT a.name FROM Airport a");
+            return (ArrayList<String>) query.getResultList();
+        }
+        return new ArrayList<>();
     }
 
     @Override
     public Airport findAirportByName(String name) {
-        query = entityManager.createQuery("SELECT a FROM Airport a WHERE a.name = :airportName", Airport.class);
-        query.setParameter("airportName", name);
-        return (Airport) query.getSingleResult();
+        if (entityManager != null) {
+            query = entityManager.createQuery("SELECT a FROM Airport a WHERE a.name = :airportName", Airport.class);
+            query.setParameter("airportName", name);
+            return (Airport) query.getSingleResult();
+        }
+        return  new Airport();
     }
 }
