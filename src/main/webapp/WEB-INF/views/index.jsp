@@ -111,11 +111,13 @@
                 </c:forEach>
             </select></p>
         <p><label for="arrivalAirport">Arrival airport</label></p>
-        <p><select name="arrivalAirport" class="form-control" id="arrivalAirport">
+        <p>
+            <select name="arrivalAirport" class="form-control" id="arrivalAirport">
                 <c:forEach var="arrivalAirport" items="${arrivalAirportsList}">
                     <option>${arrivalAirport}</option>
                 </c:forEach>
-            </select></p>
+            </select>
+        </p>
         <p><label for="flightDate">Date</label></p>
         <p><input name="flightDate" type="date" class="form-control" id="flightDate"></p>
         <p><label for="ticketType">Type</label></p>
